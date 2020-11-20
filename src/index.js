@@ -1,33 +1,15 @@
 import React from 'react'
 import express from 'express'
-import { renderToString } from 'react-dom/server'
+import renderer from './helpers/renderer'
+import { render } from 'react-dom'
 
-import Home from './client/components/Home'
-
-const content = renderToString(<Home />)
 
 const app = express()
 
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-
-    const html = `
-    <html>
-        <head>
-            <title>
-            SSR Template
-            </title>
-        <head>
-        <body>
-        <div id="root">
-        ${content}
-        <div>
-        </body>
-        <script src="bundle.js"></script>
-    </html>
-    `
-    res.send(html)
+    res.send(renderer())
 })
 
 app.listen(8080, () => {

@@ -1,6 +1,5 @@
 import React from 'react'
 
-console.log('CLIENT RUNS')
 
 const Home = () => {
     return <div>I am a different component now.

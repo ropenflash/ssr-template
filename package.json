@@ -1,0 +1,29 @@
+{
+  "name": "ssr-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/bundle.js",
+    "server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "client:build": "webpack --config webpack.client.js --watch",
+    "server:build": "webpack --config webpack.server.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "axios": "^0.21.0",
+    "babel-loader": "^8.2.1",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

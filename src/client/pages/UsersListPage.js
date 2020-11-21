@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchUsers } from '../actions'
 
 
-class UsersList extends React.Component {
+class UsersListPage extends React.Component {
 
     constructor(props) {
         super(props)
@@ -35,4 +35,16 @@ const mapStateToProps = state => {
     return { users: state.users }
 }
 
-export default connect(mapStateToProps, { fetchUsers })(UsersList)
+
+
+// SSR Loading data code
+
+const loadData = (store) => {
+    return store.dispatch(fetchUsers())
+}
+
+
+export default {
+    component: connect(mapStateToProps, { fetchUsers })(UsersListPage),
+    loadData
+}
